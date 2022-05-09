@@ -15,7 +15,10 @@ $(".time-block").on("click", "p", function() {
 })
 
 $(".time-block").on("click", "button", function() {
-    console.log(this)
+    var currentText = $("button").siblings("textarea").val().trim();
+    var saveText = $("<p>").addClass("description col-10").val(currentText);
+    $("button").siblings("textarea").removeClass("form-control").replaceWith(saveText);
+    console.log(saveText);
 });
 
 // set timeblock color
@@ -70,7 +73,6 @@ if (currentHour >= 15) {
     $(".2pm").addClass("present");
 }
 
-
 if (currentHour >= 16) {
     $(".3pm").addClass("past");
 } else if (currentHour < 15) {
@@ -79,7 +81,6 @@ if (currentHour >= 16) {
     $(".3pm").addClass("present");
 }
 
-
 if (currentHour >= 17) {
     $(".4pm").addClass("past");
 } else if (currentHour < 16) {
@@ -87,7 +88,6 @@ if (currentHour >= 17) {
 } else {
     $(".4pm").addClass("present");
 }
-
 
 if (currentHour >= 18) {
     $(".5pm").addClass("past");
