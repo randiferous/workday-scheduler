@@ -9,7 +9,7 @@ Creating and saving an event was the difficult part of this challenge. Understan
 
 What I appreciate about this challenge is that it forced me to research documentation of various third-party APIs. Even though I did not use most of what I read about, I still found it informative to expand my knowledge of what these APIs are capable of.
 
-Here is the link to the deployed application:
+Here is the link to the deployed application: https://randiferous.github.io/workday-scheduler-challenge/
 
 Below is a snapshot of the browser with events typed in, as well as one of a refreshed browser with the Application tab open:
 
