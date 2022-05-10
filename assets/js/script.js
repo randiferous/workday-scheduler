@@ -1,25 +1,63 @@
 console.log("hello world!");
 
+// enter text in timeblock
+var events = [];
+
 // show today's date
 var today = moment().format("dddd, MMMM Do YYYY");
 console.log(today);
 var todayElement = document.getElementById('currentDay');
 todayElement.textContent = today;
 
-// enter text in timeblock
-$(".time-block").on("click", "p", function() {
+// var loadEvents = function () {
+//     storedEvents = JSON.parse(localStorage.getItem("events"));
+
+//    if (!events) {
+//         events = {
+//             nineAm: [],
+//           tenAm: [],
+//            elevenAm: [],
+//           twelvePm: [],
+//           onePm: [],
+//          twoPm: [],
+//            threePm: [],
+//            fourPm: [],
+//             fivePm: []
+//       };
+//      }
+// }
+
+// var createEvent = function () {
+//     var restoredEvent = $("<p>").addClass("description col-10");
+// }
+
+$(".time-block").on("click", "p", function () {
     var eventText = $(this).text().trim();
     var eventInput = $("<textarea>").addClass("form-control col-10").val(eventText);
     $(this).replaceWith(eventInput);
     eventInput.trigger("focus");
 })
 
-$(".time-block").on("click", "button", function() {
+$(".time-block").on("click", "button", function () {
     var currentText = $("button").siblings("textarea").val().trim();
-    var saveText = $("<p>").addClass("description col-10").val(currentText);
-    $("button").siblings("textarea").removeClass("form-control").replaceWith(saveText);
-    console.log(saveText);
+    var timeBlock = $("button").closest(".time-block").attr("id");
+    events.push({
+        text: currentText,
+        time: timeBlock
+    })
+    console.log(events);
+    saveEvents();
+
+    var saveText = $("<p>").addClass("description col-10");
+    $("button").siblings("textarea").removeClass("form-control");
+    $("button").siblings("textarea").replaceWith(saveText);
+    // if I add textContent to saveText from currentText and then put (text) within saveText in replaceWith, it kinda works
+    // console.log(saveText);
 });
+
+var saveEvents = function () {
+    localStorage.setItem("events", JSON.stringify(events));
+}
 
 // set timeblock color
 var currentHour = moment().format("H")
@@ -96,3 +134,5 @@ if (currentHour >= 18) {
 } else {
     $(".5pm").addClass("present");
 }
+
+// loadEvents();
