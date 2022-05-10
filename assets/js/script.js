@@ -19,18 +19,16 @@ var loadEvents = function () {
     for (var i = 0; i < savedEvents.length; i++) {
         var eventTime = savedEvents[i].time;
         var eventText = savedEvents[i].text;
-
-        // console.log(eventTime);
-        // $(".description").attr("id", events[i]);
-
-     // find the div container with the corresponding time, and upload text into that textarea
-
+        console.log(eventTime);
+        console.log(eventText);
+        var eventBlock = document.getElementById(eventTime);
+        eventBlock.innerHTML = eventText;
     }
 }
 
 $(".time-block").on("click", "button", function () {
     var currentText = $(this).siblings("textarea").val().trim();
-    var timeBlock = $(this).closest(".time-block").attr("id");
+    var timeBlock = $(this).siblings("textarea").attr("id");
     events.push({
         text: currentText,
         time: timeBlock
@@ -119,4 +117,4 @@ if (currentHour >= 18) {
     $(".5pm").addClass("present");
 }
 
-// loadEvents();
+loadEvents();
