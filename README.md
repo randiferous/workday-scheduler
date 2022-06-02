@@ -1,4 +1,4 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler
 The purpose of this challenge is to build upon our current understanding of HTML, CSS, & JavaScript and how they dynamically interact with each other through the application of 3rd-party APIs such as jQuery, Bootstrap, and Moment.js.  By creating a functionable workday scheduler, we are conditioning ourselves to use these tools in a practical mode.
 
 The first obstacle was making sure that the stylesheet and javaScript files were properly synced to the HTML. That was a nice little curveball at the beginning of this challenge. It was also important to take note of the classes and IDs that were already in place for us to use. 
